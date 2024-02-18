@@ -10,12 +10,18 @@ const AllocationForm = (props) => {
 
     const submitEvent = () => {
 
+            if(typeof(cost)!="number")
+            {
+                alert("The value must be of a number type");
+                setCost("");
+                return;
+            }
             if(cost > remaining) {
                 alert("The value cannot exceed remaining funds  £"+remaining);
                 setCost("");
                 return;
             }
-
+           
         const expense = {
             name: name,
             cost: parseInt(cost),
