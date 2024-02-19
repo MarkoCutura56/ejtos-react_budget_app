@@ -4,11 +4,14 @@ const Budget = () => {
     const { budget } = useContext(AppContext);
     const [newBudget, setNewBudget] = useState(budget);
     const [upperLimit, setupperLimit] = useState(20000);
+    const { dispatch } = useContext(AppContext);
+
     const handleBudgetChange = (event) => {
-        if(newBudget  < upperLimit)
+        
+        if(event.target.value  < upperLimit)
         {
-            setNewBudget(event.target.value);
-            AppReducer.action({type : 'SET_BUDGET',newBudget})
+            //setNewBudget(event.target.value);
+            dispatch({type :'SET_BUDGET',payload: 2100,});
             
         }      
         else
@@ -21,7 +24,7 @@ const Budget = () => {
     return (
 <div className='alert alert-secondary'>
 <span>Budget: £</span>
-<input type="number" step="10" value={newBudget} onChange={handleBudgetChange}></input>
+<input type="number" step="10" value={budget.value} onChange={handleBudgetChange}></input>
 </div>
     );
 };
