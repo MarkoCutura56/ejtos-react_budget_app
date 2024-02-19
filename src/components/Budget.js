@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { AppContext } from '../context/AppContext';
+import { AppContext, AppReducer } from '../context/AppContext';
 const Budget = () => {
     const { budget } = useContext(AppContext);
     const [newBudget, setNewBudget] = useState(budget);
@@ -8,12 +8,15 @@ const Budget = () => {
         if(newBudget  < upperLimit)
         {
             setNewBudget(event.target.value);
+            AppReducer.action({type : 'SET_BUDGET',newBudget})
+            
         }      
         else
         {
             alert("Value cant exceed "+String(upperLimit)); 
             return;
         } 
+        
     }
     return (
 <div className='alert alert-secondary'>
