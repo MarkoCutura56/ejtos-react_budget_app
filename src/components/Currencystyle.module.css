@@ -1,0 +1,13 @@
+.Currencystyle1 {
+    color :"blue";
+  
+  
+}
+body
+{
+    color :"blue";
+    background-color: "Aquamarine";
+    padding: "10x";
+    border: "1px solid";
+    border-radius : "5px" 
+}

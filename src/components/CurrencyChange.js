@@ -1,12 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { AppContext, AppReducer } from '../context/AppContext';
-
+import styles from './Currencystyle.module.css';
 const CurrencyChange = () =>
 {
     const currencyOptions = ['$ Dollar','£ Pound','€ Euro','₹ Ruppee']
     const currencyOptionsDefault = ['$ Dollar','£ Pound','€ Euro','₹ Ruppee']
     const { dispatch } = useContext(AppContext);
     const { currency } = useContext(AppContext);
+    
     const handleCurrencyChange = (event) =>
     {
         dispatch({type :'CHG_CURRENCY',payload: event.target.value,});
@@ -14,7 +15,7 @@ const CurrencyChange = () =>
         console.log("in currencychange");
         for(let i = 0; i < currencyOptions.length; i++)
         {
-            let usedElement = document.getElementbyID("inputGroupSelect01").selectedIndex;
+            let usedElement = document.getElementbyID("inputGroupSelect012").selectedIndex;
             if(i==usedElement)
             {
                 currencyOptions[i]= "Currency:"+currencyOptions[i];  
@@ -24,13 +25,13 @@ const CurrencyChange = () =>
                 currencyOptions[i]=currencyOptionsDefault[i]+"def";
             }
         }
-        
     }
     return(
     
-       <div className="input-group mb-3">
-        <label for="inputGroupSelect01">{currency}</label>
-       <select className="custom-select" id="inputGroupSelect01" onChange={handleCurrencyChange}>
+       <div className={styles.Currencystyle1}>
+       <label className={styles.Currencystyle1} for="inputGroupSelect012" >Currency:  </label>
+       <select className={styles.Currencystyle1} id="inputGroupSelect012" onChange={handleCurrencyChange}>
+                
                 <option defaultValue>{currency}</option>
                 <option value={currencyOptions[0]} name={currencyOptions[0]}>{currencyOptions[0]}</option>
                 <option value={currencyOptions[1] } name={currencyOptions[1]} selected>{currencyOptions[1]} </option>
