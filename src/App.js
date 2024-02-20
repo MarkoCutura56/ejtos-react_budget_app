@@ -60,12 +60,15 @@ const App = () => {
                             <AllocationForm />
                             </div>
                             /* Add AllocationForm component here under */
-                        }    
+                        }
+
                         {
-                             <div className='col-sm'>
-                             <CurrencyChange />
-                             </div>
-                        }    
+                            <div className='col-sm'>
+                            <CurrencyChange />
+                            </div>
+                            /* Add AllocationForm component here under */
+                        }      
+                    
 
                 </div>
             </div>
