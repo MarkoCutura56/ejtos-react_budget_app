@@ -4,9 +4,14 @@ import { AppContext } from '../context/AppContext';
 
 const ExpenseList = () => {
     const { expenses } = useContext(AppContext);
-
+    const expenseListStyle=
+    {
+        width:"80vw",
+        justifyContent:"left"
+ 
+    }
     return (
-        <table className='table'>
+        <table className='table' style = {expenseListStyle}>
               <thead className="thead-light">
             <tr>
               <th scope="col">Department</th>

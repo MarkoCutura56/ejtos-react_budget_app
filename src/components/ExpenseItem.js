@@ -1,11 +1,38 @@
 import React, { useContext } from 'react';
-import { TiDelete } from 'react-icons/ti';
+import { TiDelete, TiPlus } from 'react-icons/ti';
+import { FaPlusCircle } from "react-icons/fa";
+
 import { AppContext } from '../context/AppContext';
 
 const ExpenseItem = (props) => {
     const { dispatch } = useContext(AppContext);
     const {currency} =useContext(AppContext);
-
+    const increaseButtonStyle=
+    {
+        fontSize: "24px",
+        fontWeight:"bold",
+        color:"green",
+        float: "center",
+        marginLeft:"5em"
+       /*  backgroundColor: "#04AA6D",
+        color: "white",
+        textAlign: "middle",
+        fontSize: "24px",
+        fontWeight:"bold",
+        borderRound:"50%" */
+        
+    }
+    const decreaseButtonStyle=
+    {
+        
+        fontSize: "24px",
+        fontWeight:"bold",
+        color:"red",
+        float: "center",
+        marginLeft:"5em"
+        
+    }
+   
     const handleDeleteExpense = () => {
         dispatch({
             type: 'DELETE_EXPENSE',
@@ -37,9 +64,10 @@ const ExpenseItem = (props) => {
         <tr>
         <td>{props.name}</td>
         <td>{currency}{props.cost}</td>
-        <td><button onClick={event=> increaseAllocation(props.name)}>+</button></td>
-        <td><button onClick={event=> decreaseAllocation(props.name)}>-</button></td>
+        <td><FaPlusCircle  style={increaseButtonStyle}   onClick={event=> increaseAllocation(props.name)}></FaPlusCircle ></td>
+        <td><FaPlusCircle  style={decreaseButtonStyle} onClick={event=> decreaseAllocation(props.name)}></FaPlusCircle ></td>
         <td><TiDelete size='1.5em' onClick={handleDeleteExpense}></TiDelete></td>
+
         </tr>
     );
 };
