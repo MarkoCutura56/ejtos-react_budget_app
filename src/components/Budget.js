@@ -24,7 +24,7 @@ const Budget = () => {
         }
         else if(totalExpenses > event.target.value)
         {
-            alert("Value cant exceed "+String(totalExpenses)); 
+            alert("You cannot reduce budget value lower than the spending"); 
             return;
         } 
         
