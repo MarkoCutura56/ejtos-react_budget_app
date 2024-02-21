@@ -5,7 +5,7 @@ const Budget = () => {
     const [upperLimit, setupperLimit] = useState(20000);
     const { dispatch } = useContext(AppContext);
     const { expenses } = useContext(AppContext);
-
+    const {currency} =useContext(AppContext);
     const totalExpenses = expenses.reduce((total, item) => {
         return (total = total + item.cost);
     }, 0);
@@ -30,8 +30,8 @@ const Budget = () => {
         
     }
     return (
-<div className='alert alert-secondary'>
-<span>Budget: £</span>
+<div className='alert alert-secondary' style ={{width: "300px"}}>
+<span>Budget:{currency}</span>
 <input type="number" step="10" value={budget} onChange={handleBudgetChange}></input>
 </div>
     );

@@ -3,6 +3,7 @@ import { AppContext, AppReducer } from '../context/AppContext';
 import styles from './Currencystyle.module.css';
 const CurrencyChange = () =>
 {
+    const currencyOptionsShort = ['$','£','€','₹']
     const currencyOptions = ['$ Dollar','£ Pound','€ Euro','₹ Ruppee']
     var currencyOptionsMod = ['$ Dollar','£ Pound','€ Euro','₹ Ruppee']
     const { dispatch } = useContext(AppContext);
@@ -11,9 +12,9 @@ const CurrencyChange = () =>
     
     const currencyStyle=
     {
-        width : "300px",
+        width : "100x",
         color : "black",
-        
+        float :"right",
         backgroundColor :  "Aquamarine",
         padding :  "10x",
         //border :  "1px solid",
@@ -24,7 +25,7 @@ const CurrencyChange = () =>
         
         color : "black",
         float :"left",
-        width : "40%",
+        width : "10%",
         backgroundColor :  "Aquamarine",
         //padding :  "10x",
         //border :  "1px solid",
@@ -35,31 +36,19 @@ const CurrencyChange = () =>
        
         color : "black",
         float :"right",
-        width : "60%",
+        width : "90%",
         backgroundColor :  "Aquamarine",
         //padding :  "10x",
         //border :  "1px solid",
         //borderRadius :  "5px" 
     }
-    const currencyStyleselected=
-    {
-       
-        color : "black",
-        position: "absolute",
-        left:"0",
-        right:"0",
-        width : "300px",
-        backgroundColor :  "Aquamarine",
-        //padding :  "10x",
-        //border :  "1px solid",
-        //borderRadius :  "5px" 
-    }
+    
     const handleCurrencyChange = (event) =>
     {
         dispatch({type :'CHG_CURRENCY',payload: event.target.value,});
         
         console.log("in currencychange");
-        for(let i = 0; i < currencyOptions.length; i++)
+ /*        for(let i = 0; i < currencyOptions.length; i++)
         {
             let usedElement = document.getElementbyID("inputGroupSelect012").selectedIndex;
             if(i==usedElement)
@@ -70,19 +59,18 @@ const CurrencyChange = () =>
             {
                 currencyOptionsMod[i]=currencyOptions[i]+"def";
             }
-        }
+        } */
     }
     return(
     
        <div style={currencyStyle}>
-       <label style={currencyStyleleft} for="inputGroupSelect012" >Currency:  </label>
-       <select style={currencyStyleright} id="inputGroupSelect012" onChange={handleCurrencyChange}>
-                
-                <option style={currencyStyleselected} defaultValue>{currency+"car"}</option>
-                <option style={currencyStyleselected} value={currencyOptions[0]} name={currencyOptions[0]}>{currencyOptions[0]}</option>
-                <option style={currencyStyleselected} value={currencyOptions[1] } name={currencyOptions[1]} selected>{currencyOptions[1]} </option>
-                <option style={currencyStyleselected} value={currencyOptions[2]} name={currencyOptions[2]}>{currencyOptions[2]} </option>
-                <option style={currencyStyleselected} value={currencyOptions[3]} name={currencyOptions[3]}>{currencyOptions[3]}</option>
+       <label style={currencyStyle} for="inputGroupSelect012" >{currency}</label>
+       <select style={currencyStyle} id="inputGroupSelect012" onChange={handleCurrencyChange}>
+
+                <option style={currencyStyleright} value={currencyOptionsShort[0]} name={currencyOptions[0]}>{currencyOptions[0]}</option>
+                <option style={currencyStyleright} value={currencyOptionsShort[1] } name={currencyOptions[1]} selected>{currencyOptions[1]} </option>
+                <option style={currencyStyleright} value={currencyOptionsShort[2]} name={currencyOptions[2]}>{currencyOptions[2]} </option>
+                <option style={currencyStyleright} value={currencyOptionsShort[3]} name={currencyOptions[3]}>{currencyOptions[3]}</option>
                   </select>
        </div>
     );
